@@ -35,5 +35,26 @@ $decrypted = $Cryptic->decrypt($encrypted["data"], $encrypted["key"]);
 
 var_dump($decrypted);
 
+echo "\n================================================================================\n\n";
+echo "storeKeyInFile(generateKey())\n\n";
+
+$return = $Cryptic->storeKeyInFile($Cryptic->generateKey());
+
+var_dump($return);
+
+echo "\n================================================================================\n\n";
+echo "storeKeyInFile(generateKey(), 42)\n\n";
+
+$return = $Cryptic->storeKeyInFile($Cryptic->generateKey(), 42);
+
+var_dump($return);
+
+echo "\n================================================================================\n\n";
+echo "storeKeyInFile(generateKey(), rand(1, 999))\n\n";
+
+$return = $Cryptic->storeKeyInFile($Cryptic->generateKey(), rand(1, 999));
+
+var_dump($return);
+
 ?>
 </pre>
