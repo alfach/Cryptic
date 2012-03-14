@@ -94,6 +94,35 @@ class Cryptic {
 	}
 
 	/**
+	 * Get keys from a file
+	 *
+	 * @access public
+	 * @param int $id
+	 * @return string|bool
+	 */
+
+	public function keyFromFile($id) {
+
+		// Be sure the given ID is a int
+		if (!is_int($id)) return FALSE;
+
+		// Check if the key storage file is valid
+		if (self::keyStorageFileIsValid()) {
+
+			// Get all existing keys as JSON and decode it to a array
+			$keys = json_decode(@file_get_contents($this->keyStorageFile), TRUE);
+
+			if (is_array($keys)) {
+
+				// Return the key if one exists for the given ID
+				if (isset($keys[$id])) return $keys[$id];
+			}
+		}
+
+		return FALSE;
+	}
+
+	/**
 	 * Encrypt
 	 *
 	 * @access public

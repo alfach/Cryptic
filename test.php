@@ -56,5 +56,12 @@ $return = $Cryptic->storeKeyInFile($Cryptic->generateKey(), rand(1, 999));
 
 var_dump($return);
 
+echo "\n================================================================================\n\n";
+echo "keyFromFile(42)\n\n";
+
+$return = $Cryptic->keyFromFile(1100);
+
+var_dump($return);
+
 ?>
 </pre>
