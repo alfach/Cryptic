@@ -117,15 +117,17 @@ Note: specifying an ID that already exists will overwrite the appropriate key.
 
 ## FAQ
 
-### How is the data encrypted?
+#### How is the data encrypted?
 
 The data is encrypted using `Mcrypt` and the `MCRYPT_RIJNDAEL_256` algorithm.
 
-### How to safely store and access the key storage file?
+#### How to safely store and access the key storage file?
 
 Cryptic does not provide a technique for addressing the issue how to safely store and access the key storage file. As this depends on your infrastructure, you will have to do it by yourself.
 
 ## Requirements
+
+Cryptic has the following requirements:
 
 - [libmcrypt 2.4 or later](http://mcrypt.sourceforge.net/)
 - [PHP Mcrypt Extension](http://www.php.net/manual/en/book.mcrypt.php)
