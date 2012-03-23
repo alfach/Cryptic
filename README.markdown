@@ -1,12 +1,10 @@
 # Cryptic
 
-Cryptic is a PHP class to encrypt/decrypt data with keys using the PHP Mcrypt Extension. It takes the hassle out of dealing directly with `mcrypt_encrypt()` & `mcrypt_decrypt()` and offers some additional features:
+Cryptic is a PHP class to encrypt/decrypt data with keys, using the PHP Mcrypt Extension. It takes the hassle out of dealing directly with `mcrypt_encrypt()` & `mcrypt_decrypt()` and offers some additional features:
 
 - easily encrypt & decrypt data
-- automatically generate random keys for encryption
-- optionally store and manage keys for you
-- support for custom keys
-- flexible to fit your needs
+- generate random encryption keys
+- store and manage keys
 
 Take a look at the following code examples to get started.
 
@@ -16,7 +14,7 @@ Take a look at the following code examples to get started.
 
 #### Initialization
 
-	include "Cryptic.php";
+	include_once "Cryptic.php";
 	$Cryptic = new Cryptic;
 
 #### Encrypt
@@ -79,7 +77,7 @@ The return value (`$key`) will be a 32 digit random key:
 
 ### Manage keys
 
-Cryptic can manage your keys for you. All keys are stored in a single file, identified by a ID and encoded as JSON.
+If you want, Cryptic can even manage your keys for you. All keys are stored in a single file, identified by an ID and encoded as JSON.
 
 #### Configuration
 
@@ -117,9 +115,15 @@ Of course you can also use a custom ID (e.g. a user-ID) to store a key:
 
 Note: specifying an ID that already exists will overwrite the appropriate key.
 
-## Encryption
+## FAQ
 
-Your data is encrypted using `Mcrypt` and the `MCRYPT_RIJNDAEL_256` algorithm.
+### How is the data encrypted?
+
+The data is encrypted using `Mcrypt` and the `MCRYPT_RIJNDAEL_256` algorithm.
+
+### How to safely store and access the key storage file?
+
+Cryptic does not provide a technique for addressing the issue how to safely store and access the key storage file. As this depends on your infrastructure, you will have to do it by yourself.
 
 ## Requirements
 
